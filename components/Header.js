@@ -5,10 +5,10 @@ export function Header() {
   return (
     <header className={styles.header}>
       <Link href="/">
-        <a>Index</a>
+        <a className={styles.anchor}>Index</a>
       </Link>
       <Link href="/about">
-        <a>About</a>
+        <a className={styles.anchor}>About</a>
       </Link>
     </header>
   )
