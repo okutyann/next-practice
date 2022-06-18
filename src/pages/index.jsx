@@ -16,11 +16,12 @@ export default function Home() {
     }
   }, [count]);
 
-  const handleChange = useCallback(() => {
+  const handleChange = useCallback((e) => {
     if (e.target.value.length > 5) {
       alert("5文字以内 で入力してください");
       return;
     }
+    setText(e.target.value);
   }, []);
 
   const handleDisply = useCallback(() => {
@@ -39,11 +40,11 @@ export default function Home() {
       <Head>
         <title>Index Page</title>
       </Head>
+      <Header />
       {isShow ? <h1>{count}</h1> : null}
+      <input type="text" value={text} onChange={handleChange} />
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisply}>非表示</button>
-      <input type="text" value={text} onChange={handleChange} />
-      <Header />
       <Main page="index" />
       <Footer />
     </div>
