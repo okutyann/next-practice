@@ -7,18 +7,19 @@ import { useCallback, useEffect , useState} from 'react'
 
 export default function Home() {
   const [count, setFoo] = useState(1);
-  //let foo =1;
 
-  const handleClick = (e) =>{
-    setFoo(count => count + 1)
-  };
+  const handleClick = useCallback(() => {
+    if (count < 10){
+          setFoo(count => count + 1)
+    }
+  },[count]);
 
   useEffect (() => {
     document.body.style.backgroundColor = 'lightblue';
     return () => {
       document.body.style.backgroundColor = 'lightpink';
     }
-  },[]);
+  },[count]);
 
   return (
     <div className={styles.container}>
