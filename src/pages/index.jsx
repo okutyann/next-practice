@@ -29,6 +29,16 @@ export default function Home() {
     setIsShow((prevIsShow) => !prevIsShow);
   },[]);
 
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if (prevArray.some(item => item === text)) {
+        alert("すでに登録されています");
+        return prevArray;
+      }
+      return [...prevArray, text];
+    });
+  },[text]);
+
   useEffect(() => {
     document.body.style.backgroundColor = 'lightblue';
     return () => {
@@ -43,9 +53,17 @@ export default function Home() {
       </Head>
       <Header />
       {isShow ? <h1>{count}</h1> : null}
-      <input type="text" value={text} onChange={handleChange} />
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisply}>非表示</button>
+      <input type="text" value={text} onChange={handleChange} />
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map(item => {
+          return (
+            <li key={item}>{item}</li>
+          )
+        })}
+      </ul>
       <Main page="index" />
       <Footer />
     </div>
