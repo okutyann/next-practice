@@ -9,6 +9,13 @@ const counter = () => {
         console.log("honoka");
     },[count]);
     
+    const getPokemon = async() => {
+   
+            const res = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu/");
+            const pokemons =await res.json();
+            console.log(pokemons.name)
+            }
+
     const subNum = () => {
         setCount(count - 1);
     }
@@ -25,6 +32,7 @@ const counter = () => {
             <button onClick={dubleNum}>×2</button>
             {/* <button onClick={() => { num = num + 1, console.log(num) }}>1</button>
             <button onClick={()=>setCount(num)}>nummmmm</button> */}
+            <button onClick={getPokemon}>pokemon</button>
         </div>
     )
 }
