@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 
 const counter = () => {
     const [count, setCount] = useState(0);
     let num = 9
     const addNum = () => setCount(count + 1);
-
-
+    useEffect (() => {
+        console.log("honoka");
+    },[count]);
+    
     const subNum = () => {
         setCount(count - 1);
     }
