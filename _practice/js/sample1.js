@@ -28,8 +28,8 @@ const func2 = (str) => {
   return str;
 };
 // returnの省略
-const func2 = (str) => str;
-console.log(func2("func2です。"));
+const func4 = (str) => str;
+console.log(func4("func4です。"));
 
 const func3 = (num1, num2) => {
   return num1 + num2;
