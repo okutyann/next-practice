@@ -124,31 +124,37 @@
  * mapやfilterを使った配列処理
  */
 
-const nameArr = ["奥田", "片山", "逢見"];
+// const nameArr = ["奥田", "片山", "逢見"];
 //従来のfor文を使用した場合
 // for (let index = 0; index < nameArr.length; index++) {
 //   console.log(nameArr[index]);
 // }
 
-// //map
+/**
+ * map
+ */
+
 // const nameArr2 = nameArr.map((name) => {
 //   return name;
 // });
 // console.log(nameArr2);
 //nameArr.map((name, index) => console.log(`${index}は${name}です。`));
 
-//filter
+/**
+ * filter
+ */
+
 // const numArr = [1, 2, 3, 4, 5];
 // const newNumArr = numArr.filter((num) => {
 //   return num % 2 === 1; //余りが１になるもの（奇数）
 // });
 // console.log(newNumArr);
 
-const newNameArry = nameArr.map((name) => {
-  if (name === "奥田") {
-    return name;
-  } else {
-    return `${name}さん。`;
-  }
-});
-console.log(newNameArry);
+// const newNameArry = nameArr.map((name) => {
+//   if (name === "奥田") {
+//     return name;
+//   } else {
+//     return `${name}さん。`;
+//   }
+// });
+// console.log(newNameArry);
