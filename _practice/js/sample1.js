@@ -101,17 +101,17 @@
 // console.log(arr3);
 
 //配列の結合、コピー
-const arr4 = [10, 20];
-const arr5 = [30, 40];
+// const arr4 = [10, 20];
+// const arr5 = [30, 40];
 
-const arr6 = [...arr4];
-console.log(arr6);
-arr6[0] = 140;
-console.log(arr6);
-console.log(arr4); //スプレッド構文で参照元をコピーすると大丈夫
+// const arr6 = [...arr4];
+// console.log(arr6);
+// arr6[0] = 140;
+// console.log(arr6);
+// console.log(arr4); //スプレッド構文で参照元をコピーすると大丈夫
 
-const arr7 = [...arr4, ...arr5];
-console.log(arr7);
+// const arr7 = [...arr4, ...arr5];
+// console.log(arr7);
 
 //イコールで配列をコピーしてしまうと参照元が同じなため元の方も変わってしまう
 // const arr8 = arr4;
@@ -119,3 +119,36 @@ console.log(arr7);
 // arr8[0] = 100;
 // console.log(arr8);
 // console.log(arr4); //arr4の中身も変わっちゃうので不具合になる
+
+/**
+ * mapやfilterを使った配列処理
+ */
+
+const nameArr = ["奥田", "片山", "逢見"];
+//従来のfor文を使用した場合
+// for (let index = 0; index < nameArr.length; index++) {
+//   console.log(nameArr[index]);
+// }
+
+// //map
+// const nameArr2 = nameArr.map((name) => {
+//   return name;
+// });
+// console.log(nameArr2);
+//nameArr.map((name, index) => console.log(`${index}は${name}です。`));
+
+//filter
+// const numArr = [1, 2, 3, 4, 5];
+// const newNumArr = numArr.filter((num) => {
+//   return num % 2 === 1; //余りが１になるもの（奇数）
+// });
+// console.log(newNumArr);
+
+const newNameArry = nameArr.map((name) => {
+  if (name === "奥田") {
+    return name;
+  } else {
+    return `${name}さん。`;
+  }
+});
+console.log(newNameArry);
