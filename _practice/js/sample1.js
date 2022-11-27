@@ -175,7 +175,30 @@
 //   typeof num === "number" ? num.toLocaleString() : "数値を入力してください。";
 // console.log(formattedNum);
 
-const checkSum = (num1, num2) => {
-  return num1 + num2 > 100 ? "１００を超えています。" : "許容範囲です。";
-};
-console.log(checkSum(30, 60));
+// const checkSum = (num1, num2) => {
+//   return num1 + num2 > 100 ? "１００を超えています。" : "許容範囲です。";
+// };
+// console.log(checkSum(30, 60));
+
+/**
+ * 論理演算子の本当の意味を知ろう && ||
+ */
+
+// const flg1 = true;
+// const flg2 = false;
+// if (flg1 || flg2) {
+//   console.log("１か２はtrueになります。");
+// }
+// if (flg1 && flg2) {
+//   console.log("１も２はtrueになります。");
+// }
+
+// || は左側がfalseの時に右側を返す
+const num = null;
+const fee = num || "金額未設定です。";
+console.log(fee);
+
+// && は左側がtrueの時に右側を返す
+const num2 = null;
+const fee2 = num2 && "何か設定されました。";
+console.log(fee2);
