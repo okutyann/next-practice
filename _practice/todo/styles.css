@@ -2,13 +2,13 @@ body {
   font-family: sans-serif;
 }
 input {
-  border-radius: 5px;
+  border-radius: 16px;
   border: none;
   padding: 6px 16px;
   outline: none;
 }
 button {
-  border-radius: 5px;
+  border-radius: 16px;
   border: none;
   padding: 4px 16px;
   margin: 5px;
