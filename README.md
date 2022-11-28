@@ -6,6 +6,7 @@
   - todo
     - index.html
     - main.js
+    - styles.css
     
 実行コマンド
 ```bash
