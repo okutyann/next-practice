@@ -20,6 +20,9 @@ const onClickAdd = () => {
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
   deleteButton.addEventListener("click", () => {
+    //押された削除ボタンの親タグを未完了リストから削除
+    const deleteTaret = deleteButton.closest("li");
+    document.getElementById("imcomplete-list").removeChild(deleteTaret);
     alert("削除");
   });
 
