@@ -1,4 +1,4 @@
-学習ディレクトリ
+## JavaScript学習ディレクトリ
 
 - _practice
   - js
@@ -6,3 +6,8 @@
   - todo
     - index.html
     - main.js
+    
+実行コマンド
+```bash
+node ファイル名.js
+```
