@@ -27,7 +27,7 @@ button:hover {
   margin: 8px;
   border-radius: 8px;
 }
-.imcomplete-area {
+.incomplete-area {
   background-color: #c58fff;
   width: 400px;
   min-height: 200px;
