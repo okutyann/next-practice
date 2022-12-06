@@ -1,0 +1,47 @@
+.button {
+  border-radius: 16px;
+  border: none;
+  padding: 4px 16px;
+  margin: 5px;
+}
+.button:hover {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+.inputArea {
+  background-color: #c1ffff;
+  width: 400px;
+  height: 57px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+.incompleteArea {
+  background-color: #c58fff;
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+.completeArea {
+  background-color: rgb(253, 176, 253);
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+.title {
+  text-align: center;
+  margin-top: 0;
+  font-weight: bolder;
+  color: rgba(49, 47, 47, 0.968);
+}
+.listRow {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4px;
+}

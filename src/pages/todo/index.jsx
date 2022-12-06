@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import styles from "../../styles/module/todo.module.css";
 
-export default function index() {
+export default function Index() {
   const [incompleteTodos, setIncompleteTodos] = useState([
     "テスト１",
     "テスト２",
@@ -8,42 +9,41 @@ export default function index() {
   const [completeTodos, setCompleteTodos] = useState(["テスト３"]);
   return (
     <>
-      <div className="input-area">
+      <div className={styles.inputArea}>
         <input placeholder="todoを入力" />
-        <button>追加</button>
+        <button className={styles.button}>追加</button>
       </div>
-      <div className="incomplete-area">
+      <div className={styles.incompleteArea}>
         <p className="title">未完了のtodo</p>
         <ul>
           {incompleteTodos.map((todo) => {
             return (
               <li key={todo}>
-                <div className="list-row">
+                <div className={styles.listRow}>
                   <p>{todo}</p>
-                  <button>完了</button>
-                  <button>削除</button>
+                  <button className={styles.button}>完了</button>
+                  <button className={styles.button}>削除</button>
                 </div>
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="complete-area ">
+      <div className={styles.completeArea}>
         <p className="title">完了のtodo</p>
         <ul>
           {completeTodos.map((todo) => {
             return (
               <li key={todo}>
-                <div className="list-row">
+                <div className={styles.listRow}>
                   <p>{todo}</p>
-                  <button>戻す</button>
+                  <button className={styles.button}>戻す</button>
                 </div>
               </li>
             );
           })}
         </ul>
       </div>
-      <div></div>
     </>
   );
 }
