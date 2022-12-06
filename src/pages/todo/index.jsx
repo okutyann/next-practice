@@ -2,16 +2,34 @@ import React, { useState } from "react";
 import styles from "../../styles/module/todo.module.css";
 
 export default function Index() {
+  const [todoText, setTodoText] = useState("");
   const [incompleteTodos, setIncompleteTodos] = useState([
     "テスト１",
     "テスト２",
   ]);
   const [completeTodos, setCompleteTodos] = useState(["テスト３"]);
+
+  const onChangeTodoText = (event) => {
+    setTodoText(event.target.value);
+  };
+
+  const onClickAdd = () => {
+    if (todoText === "") return;
+    const newTodo = [...incompleteTodos, todoText];
+    setIncompleteTodos(newTodo);
+    setTodoText("");
+  };
   return (
     <>
       <div className={styles.inputArea}>
-        <input placeholder="todoを入力" />
-        <button className={styles.button}>追加</button>
+        <input
+          placeholder="todoを入力"
+          value={todoText}
+          onChange={onChangeTodoText}
+        />
+        <button className={styles.button} onClick={onClickAdd}>
+          追加
+        </button>
       </div>
       <div className={styles.incompleteArea}>
         <p className="title">未完了のtodo</p>
