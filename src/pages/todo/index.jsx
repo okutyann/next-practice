@@ -19,6 +19,12 @@ export default function Index() {
     setIncompleteTodos(newTodo);
     setTodoText("");
   };
+  const onCliclDelete = (index) => {
+    const newTodo = [...incompleteTodos];
+    newTodo.splice(index, 1);
+    setIncompleteTodos(newTodo);
+  };
+
   return (
     <>
       <div className={styles.inputArea}>
@@ -34,13 +40,18 @@ export default function Index() {
       <div className={styles.incompleteArea}>
         <p className="title">未完了のtodo</p>
         <ul>
-          {incompleteTodos.map((todo) => {
+          {incompleteTodos.map((todo, index) => {
             return (
               <li key={todo}>
                 <div className={styles.listRow}>
                   <p>{todo}</p>
                   <button className={styles.button}>完了</button>
-                  <button className={styles.button}>削除</button>
+                  <button
+                    className={styles.button}
+                    onClick={() => onCliclDelete(index)}
+                  >
+                    削除
+                  </button>
                 </div>
               </li>
             );
