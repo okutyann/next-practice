@@ -12,3 +12,8 @@
 ```bash
 node ファイル名.js
 ```
+
+## React学習
+```bash
+yarn dev
+```
