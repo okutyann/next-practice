@@ -54,7 +54,7 @@ export default function Index() {
         </button>
       </div>
       <div className={styles.incompleteArea}>
-        <p className="title">未完了のtodo</p>
+        <p className={styles.title}>未完了のtodo</p>
         <ul>
           {incompleteTodos.map((todo, index) => {
             return (
@@ -80,7 +80,7 @@ export default function Index() {
         </ul>
       </div>
       <div className={styles.completeArea}>
-        <p className="title">完了のtodo</p>
+        <p className={styles.title}>完了のtodo</p>
         <ul>
           {completeTodos.map((todo, index) => {
             return (

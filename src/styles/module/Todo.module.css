@@ -34,14 +34,12 @@
   margin: 8px;
   border-radius: 8px;
 }
-.title {
-  text-align: center;
-  margin-top: 0;
-  font-weight: bolder;
-  color: rgba(49, 47, 47, 0.968);
-}
 .listRow {
   display: flex;
   align-items: center;
   padding-bottom: 4px;
+}
+.title {
+  margin: 0px;
+  color: rgb(62, 60, 60);
 }
