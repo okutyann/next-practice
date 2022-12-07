@@ -19,10 +19,20 @@ export default function Index() {
     setIncompleteTodos(newTodo);
     setTodoText("");
   };
+
   const onCliclDelete = (index) => {
     const newTodo = [...incompleteTodos];
     newTodo.splice(index, 1);
     setIncompleteTodos(newTodo);
+  };
+
+  const onCliclComplete = (index) => {
+    const newIncompleteTodo = [...incompleteTodos];
+    newIncompleteTodo.splice(index, 1);
+
+    const newCompleteTodo = [...completeTodos, incompleteTodos[index]];
+    setIncompleteTodos(newIncompleteTodo);
+    setCompleteTodos(newCompleteTodo);
   };
 
   return (
@@ -45,7 +55,12 @@ export default function Index() {
               <li key={todo}>
                 <div className={styles.listRow}>
                   <p>{todo}</p>
-                  <button className={styles.button}>完了</button>
+                  <button
+                    className={styles.button}
+                    onClick={() => onCliclComplete(index)}
+                  >
+                    完了
+                  </button>
                   <button
                     className={styles.button}
                     onClick={() => onCliclDelete(index)}
