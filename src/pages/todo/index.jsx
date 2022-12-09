@@ -49,7 +49,13 @@ export default function Index() {
         todoText={todoText}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
       />
+      {incompleteTodos.length >= 5 && (
+        <p style={{ color: "red" }}>
+          登録できるTodoは5個までだよ！消化してね！
+        </p>
+      )}
       <IncompleteTods
         todos={incompleteTodos}
         onCliclDelete={onCliclDelete}
