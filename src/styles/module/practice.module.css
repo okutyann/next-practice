@@ -1,0 +1,18 @@
+.div {
+  text-align: center;
+}
+.button {
+  border-radius: 16px;
+  border: none;
+  padding: 4px 16px;
+  margin: 5px;
+}
+.button:hover {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+.p {
+  font-size: large;
+  margin: 10px;
+}
