@@ -1,15 +1,19 @@
-export const UserCard = () => {
+import { UserIConWithName } from "../../molecules/user/UserIConWithName";
+
+export const UserCard = ({ user }) => {
   return (
     <div>
-      <img src="" alt="プロフィール" />
-      <p>名前</p>
       <dl>
+        <UserIConWithName
+          image={user.image}
+          name={user.name}
+        ></UserIConWithName>
         <dt>メール</dt>
-        <dd>1111@gmail.com</dd>
+        <dd>{user.email}</dd>
         <dt>TEL</dt>
-        <dd>080-888-8888</dd>
+        <dd>{user.phone}</dd>
         <dt>会社名</dt>
-        <dd>hurennti</dd>
+        <dd>{user.company.name}</dd>
       </dl>
     </div>
   );
