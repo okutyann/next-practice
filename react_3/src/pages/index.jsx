@@ -4,6 +4,10 @@ import { Main } from "../components/Main";
 import { Header } from "@/components/Header";
 
 export default function Index() {
+  function handlClick(e) {
+    console.log(e.target);
+    e.preventDefault();
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -12,6 +16,7 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <button onClick={handlClick}>ボタン</button>
       <Main page="index" />
     </div>
   );
