@@ -2,20 +2,18 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { Main } from "../components/Main";
 import { Header } from "@/components/Header";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Index() {
-  const handlClick = useCallback((e) => {
-    console.log(e.target);
-    e.preventDefault();
-  }, []);
+  const [count, setCount] = useState(1);
+  const handlClick = (e) => {
+    setCount((count) => count + 1);
+  };
 
   useEffect(() => {
     document.body.style.background = "lightblue";
-    console.log("マウント時");
     return () => {
       document.body.style.background = "";
-      console.log("アンマウント時");
     };
   }, []);
 
@@ -27,6 +25,7 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <h1>{count}</h1>
       <button onClick={handlClick}>ボタン</button>
       <Main page="index" />
     </div>
