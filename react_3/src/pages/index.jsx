@@ -2,12 +2,23 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { Main } from "../components/Main";
 import { Header } from "@/components/Header";
+import { useEffect } from "react";
 
 export default function Index() {
   function handlClick(e) {
     console.log(e.target);
     e.preventDefault();
   }
+
+  useEffect(() => {
+    document.body.style.background = "lightblue";
+    console.log("マウント時");
+    return () => {
+      document.body.style.background = "";
+      console.log("アンマウント時");
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
