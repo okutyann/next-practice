@@ -2,13 +2,13 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { Main } from "../components/Main";
 import { Header } from "@/components/Header";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 export default function Index() {
-  function handlClick(e) {
+  const handlClick = useCallback((e) => {
     console.log(e.target);
     e.preventDefault();
-  }
+  }, []);
 
   useEffect(() => {
     document.body.style.background = "lightblue";
