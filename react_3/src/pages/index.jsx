@@ -6,16 +6,19 @@ import { useCallback, useEffect, useState } from "react";
 
 export default function Index() {
   const [count, setCount] = useState(1);
-  const handlClick = (e) => {
-    setCount((count) => count + 1);
-  };
+
+  const handlClick = useCallback(() => {
+    if (count < 10) {
+      setCount((count) => count + 1);
+    }
+  }, [count]);
 
   useEffect(() => {
     document.body.style.background = "lightblue";
     return () => {
       document.body.style.background = "";
     };
-  }, []);
+  }, [count]);
 
   return (
     <div className={styles.container}>
