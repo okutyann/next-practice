@@ -6,12 +6,22 @@ import { useCallback, useEffect, useState } from "react";
 
 export default function Index() {
   const [count, setCount] = useState(1);
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(true);
 
   const handlClick = useCallback(() => {
     if (count < 10) {
       setCount((count) => count + 1);
     }
   }, [count]);
+
+  const handlChange = useCallback((e) => {
+    setText(e.target.value);
+  }, []);
+
+  const handlDisply = useCallback(() => {
+    setIsShow((isShow) => !isShow);
+  }, []);
 
   useEffect(() => {
     document.body.style.background = "lightblue";
@@ -28,8 +38,10 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <h1>{count}</h1>
+      {isShow ? <h1>{count}</h1> : null}
       <button onClick={handlClick}>ボタン</button>
+      <button onClick={handlDisply}>{isShow ? "非表示" : "表示"}</button>
+      <input type="text" value={text} onChange={handlChange}></input>
       <Main page="index" />
     </div>
   );
