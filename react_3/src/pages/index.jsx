@@ -11,7 +11,7 @@ export default function Index() {
 
   const handlClick = useCallback(() => {
     if (count < 10) {
-      setCount((count) => count + 1);
+      setCount((prevCount) => prevCount + 1);
     }
   }, [count]);
 
@@ -20,7 +20,7 @@ export default function Index() {
   }, []);
 
   const handlDisply = useCallback(() => {
-    setIsShow((isShow) => !isShow);
+    setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
   useEffect(() => {
