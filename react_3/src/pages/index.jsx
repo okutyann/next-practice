@@ -8,6 +8,7 @@ export default function Index() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
 
   const handlClick = useCallback(() => {
     if (count < 10) {
@@ -22,6 +23,16 @@ export default function Index() {
   const handlDisply = useCallback(() => {
     setIsShow((prevIsShow) => !prevIsShow);
   }, []);
+
+  const handlAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if (prevArray.some((item) => item === text)) {
+        alert("同じ要素がすでに存在します");
+        return prevArray;
+      }
+      return [...prevArray, text];
+    });
+  }, [text]);
 
   useEffect(() => {
     document.body.style.background = "lightblue";
@@ -42,6 +53,12 @@ export default function Index() {
       <button onClick={handlClick}>ボタン</button>
       <button onClick={handlDisply}>{isShow ? "非表示" : "表示"}</button>
       <input type="text" value={text} onChange={handlChange}></input>
+      <button onClick={handlAdd}>追加</button>
+      <ul>
+        {array.map((item) => {
+          return <li key={item}>{item}</li>;
+        })}
+      </ul>
       <Main page="index" />
     </div>
   );
