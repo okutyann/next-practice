@@ -2,14 +2,18 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { Main } from "../components/Main";
 import { Header } from "@/components/Header";
-import { useCounter } from "@/hooks/useCounter";
-import { useInputArray } from "@/hooks/useInputArray";
-import { useBgLightBlue } from "@/hooks/useBgLightBlue";
 
-export default function Index() {
-  const { count, isShow, handlClick, handlDisply } = useCounter();
-  const { text, array, handlChange, handlAdd } = useInputArray();
-  useBgLightBlue();
+export default function Index(props) {
+  const {
+    count,
+    isShow,
+    handlClick,
+    handlDisply,
+    text,
+    array,
+    handlChange,
+    handlAdd,
+  } = props;
 
   return (
     <div className={styles.container}>
