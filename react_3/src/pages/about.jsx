@@ -1,9 +1,15 @@
 import { Header } from "@/components/Header";
+import { useBgLightBlue } from "@/hooks/useBgLightBlue";
+import { useCounter } from "@/hooks/useCounter";
+import { useInputArray } from "@/hooks/useInputArray";
 import Head from "next/head";
 import { Main } from "../components/Main";
 import styles from "../styles/Home.module.css";
 
 export default function About() {
+  const { count, isShow, handlClick, handlDisply } = useCounter();
+  const { text, array, handlChange, handlAdd } = useInputArray();
+  useBgLightBlue();
   return (
     <div className={styles.container}>
       <Head>
@@ -12,6 +18,17 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      {isShow ? <h1>{count}</h1> : null}
+      <button onClick={handlClick}>ボタン</button>
+      <button onClick={handlDisply}>{isShow ? "非表示" : "表示"}</button>
+
+      <input type="text" value={text} onChange={handlChange}></input>
+      <button onClick={handlAdd}>追加</button>
+      <ul>
+        {array.map((item) => {
+          return <li key={item}>{item}</li>;
+        })}
+      </ul>
       <Main page="about" />
     </div>
   );
