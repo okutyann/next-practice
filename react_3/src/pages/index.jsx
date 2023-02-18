@@ -3,18 +3,7 @@ import styles from "../styles/Home.module.css";
 import { Main } from "../components/Main";
 import { Header } from "@/components/Header";
 
-export default function Index(props) {
-  const {
-    count,
-    isShow,
-    handlClick,
-    handlDisply,
-    text,
-    array,
-    handlChange,
-    handlAdd,
-  } = props;
-
+const Index = (props) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -24,14 +13,21 @@ export default function Index(props) {
       </Head>
       <Header />
 
-      {isShow ? <h1>{count}</h1> : null}
-      <button onClick={handlClick}>ボタン</button>
-      <button onClick={handlDisply}>{isShow ? "非表示" : "表示"}</button>
+      {props.isShow ? <h1>{props.count}</h1> : null}
+      <button onClick={props.handlClick}>ボタン</button>
+      <button onClick={props.handlDisply}>
+        {props.isShow ? "非表示" : "表示"}
+      </button>
 
-      <input type="text" value={text} onChange={handlChange}></input>
-      <button onClick={handlAdd}>追加</button>
+      <input
+        type="text"
+        value={props.text}
+        onChange={props.handlChange}
+      ></input>
+      <button onClick={props.handlAdd}>追加</button>
       <ul>
-        {array.map((item) => {
+        <button onClick={props.handlAdd}>追加</button>
+        {props.array.map((item) => {
           return <li key={item}>{item}</li>;
         })}
       </ul>
@@ -39,4 +35,5 @@ export default function Index(props) {
       <Main page="index" />
     </div>
   );
-}
+};
+export default Index;

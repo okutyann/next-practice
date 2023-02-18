@@ -28,7 +28,7 @@ const ITMES = [
   },
 ];
 
-export function Main(props) {
+export const Main = (props) => {
   const [items, setItems] = useState(ITMES);
   const handlReduce = useCallback(() => {
     setItems((prevItems) => {
@@ -47,4 +47,4 @@ export function Main(props) {
       <Footer />
     </div>
   );
-}
+};
