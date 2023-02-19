@@ -1,9 +1,20 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { Main } from "../components/Main";
 import { Header } from "@/components/Header";
+import { useCallback, useEffect, useState } from "react";
 
 const Index = (props) => {
+  const [posts, setPosts] = useState([]);
+  const getPosts = useCallback(async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const json = await res.json();
+    setPosts(json);
+  }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,27 +23,13 @@ const Index = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-
-      {props.isShow ? <h1>{props.count}</h1> : null}
-      <button onClick={props.handlClick}>ボタン</button>
-      <button onClick={props.handlDisply}>
-        {props.isShow ? "非表示" : "表示"}
-      </button>
-
-      <input
-        type="text"
-        value={props.text}
-        onChange={props.handlChange}
-      ></input>
-      <button onClick={props.handlAdd}>追加</button>
-      <ul>
-        <button onClick={props.handlAdd}>追加</button>
-        {props.array.map((item) => {
-          return <li key={item}>{item}</li>;
-        })}
-      </ul>
-
-      <Main page="index" />
+      {posts.length > 0 ? (
+        <ol>
+          {posts.map((post) => {
+            return <li key={post.id}>{post.title}</li>;
+          })}
+        </ol>
+      ) : null}
     </div>
   );
 };
