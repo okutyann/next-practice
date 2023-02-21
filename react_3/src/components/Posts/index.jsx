@@ -1,14 +1,38 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useReducer } from "react";
+
+const initialState = {
+  date: [],
+  loading: true,
+  error: null,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "end":
+      return {
+        ...state,
+        date: action.date,
+        loading: false,
+      };
+    case "error": {
+      // console.log(action);
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    }
+    // 上記の2つのどれにも当てはまらなかった場合
+    default:
+      throw new Error("no such action type!");
+  }
+};
 
 export const Posts = () => {
   // const [posts, setPosts] = useState([]);
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
-  const [state, setState] = useState({
-    date: [],
-    loading: true,
-    error: null,
-  });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const getPosts = useCallback(async () => {
     try {
@@ -17,26 +41,11 @@ export const Posts = () => {
         throw new Error("エラーが発生したため、データの取得を失敗しました");
       }
       const json = await res.json();
-      setState((prevState) => {
-        return {
-          ...prevState,
-          /*date: [],
-          loading: true,
-          error: null*/
-          date: json,
-          loading: false,
-        };
-      });
+      dispatch({ type: "end", date: json });
     } catch (error) {
-      setState((prevState) => {
-        return {
-          ...prevState,
-          loading: false,
-          error: error,
-        };
-      });
+      console.log(error);
+      dispatch({ type: "error", error });
     }
-    // setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -49,6 +58,7 @@ export const Posts = () => {
   if (state.error) {
     return <div>{state.error.message}</div>;
   }
+  console.log(state);
   if (state.date.length === 0) {
     return <div>データは空です</div>;
   }
