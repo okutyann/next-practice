@@ -3,10 +3,22 @@ import { useEffect, useMemo } from "react";
 
 export const useBgColor = () => {
   const router = useRouter();
-  console.log(router);
 
   const bgColor = useMemo(() => {
-    return router.pathname === "/" ? "lightblue" : "beige";
+    switch (router.pathname) {
+      case "/": {
+        return "lightblue";
+      }
+      case "/about": {
+        return "beige";
+      }
+      case "/playground": {
+        return "lightpink";
+      }
+      default: {
+        return "";
+      }
+    }
   }, [router.pathname]);
 
   useEffect(() => {
