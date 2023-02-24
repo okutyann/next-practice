@@ -1,9 +1,9 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { Header } from "@/components/Header";
-import { Posts } from "@/components/Posts";
+import { Posts as PostsComponents } from "@/components/Posts";
 
-const Index = () => {
+const Posts = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,8 +12,8 @@ const Index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Posts />
+      <PostsComponents />
     </div>
   );
 };
-export default Index;
+export default Posts;

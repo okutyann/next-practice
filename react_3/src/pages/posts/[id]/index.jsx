@@ -1,10 +1,10 @@
 import Head from "next/head";
-import styles from "../../styles/Home.module.css";
+import styles from "../../../styles/Home.module.css";
 import { Header } from "@/components/Header";
 import { usePost } from "@/hooks/usePost";
 import { Post } from "@/components/Post";
 
-const PostId = () => {
+const PostsId = () => {
   const { post, user, error, isLoading } = usePost();
   return (
     <div className={styles.container}>
@@ -18,4 +18,4 @@ const PostId = () => {
     </div>
   );
 };
-export default PostId;
+export default PostsId;
