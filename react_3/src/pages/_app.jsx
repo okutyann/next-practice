@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import Head from "next/head";
+import { Layout } from "@/components/Layout/";
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -7,7 +8,9 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 };
