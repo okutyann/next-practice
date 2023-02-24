@@ -3,13 +3,14 @@ import classes from "./Header.module.css";
 
 const NAV_ITEMS = [
   {
+    href: "/",
+    label: "Index",
+  },
+  {
     href: "/posts",
     label: "Posts",
   },
-  {
-    href: "/about",
-    label: "About",
-  },
+
   {
     href: "/playground",
     label: "Playground",

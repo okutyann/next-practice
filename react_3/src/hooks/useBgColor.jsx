@@ -6,10 +6,10 @@ export const useBgColor = () => {
 
   const bgColor = useMemo(() => {
     switch (router.pathname) {
-      case "/posts": {
+      case "/": {
         return "lightblue";
       }
-      case "/about": {
+      case "/posts": {
         return "beige";
       }
       case "/playground": {
