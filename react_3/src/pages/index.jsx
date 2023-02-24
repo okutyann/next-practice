@@ -1,6 +1,5 @@
 import { Header } from "@/components/Header";
 import Head from "next/head";
-import { Main } from "../components/Main";
 import styles from "../styles/Home.module.css";
 
 const Index = (props) => {
