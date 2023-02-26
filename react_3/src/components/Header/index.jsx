@@ -10,7 +10,14 @@ const NAV_ITEMS = [
     href: "/posts",
     label: "Posts",
   },
-
+  {
+    href: "/users",
+    label: "Users",
+  },
+  {
+    href: "/comment",
+    label: "Comment",
+  },
   {
     href: "/playground",
     label: "Playground",
