@@ -11,7 +11,6 @@ export const Post = () => {
 
   return (
     <>
-      {/* ファイル名と一致しないとダメ [id] = query.id　*/}
       <div>
         <h1>{post?.title}</h1>
         <p>{post?.body}</p>
