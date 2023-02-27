@@ -11,8 +11,7 @@ export const User = () => {
   return (
     <>
       <div>
-        <h1>{data.name}</h1>
-        <h2>{data.username}</h2>
+        <p>{data.username}</p>
       </div>
     </>
   );

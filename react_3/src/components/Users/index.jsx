@@ -14,7 +14,7 @@ export const Users = () => {
       {data.map((user) => {
         return (
           <li key={user.id}>
-            <Link href={`/Users/${user.id}`} legacyBehavior>
+            <Link href={`/users/${user.id}`} legacyBehavior>
               <a>{user.name}</a>
             </Link>
           </li>
