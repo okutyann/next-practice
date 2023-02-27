@@ -2,12 +2,9 @@ import Head from "next/head";
 import { Header } from "@/components/Header";
 import { User } from "@/components/User";
 import { useUser } from "@/hooks/useUser";
-import { useRouter } from "next/router";
 
 const UserId = () => {
   const { data, error, isLoading } = useUser();
-  const router = useRouter();
-  console.log(router.query);
   return (
     <div>
       <Head>
